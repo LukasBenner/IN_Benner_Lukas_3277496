@@ -1,0 +1,1 @@
+[result, abortFlag, iters]  = myNewton('function', @myPoly, 'startValue', 10, 'livePlot', 'on');
