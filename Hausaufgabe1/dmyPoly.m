@@ -17,7 +17,7 @@ function y = dmyPoly(x)
 % See also: myNewton, myPoly
 %
 % Author: Lukas Benner
-% Date: March 30, 2020
+% Date: March 30, 2022
 
 % ------------- BEGIN CODE --------------
 

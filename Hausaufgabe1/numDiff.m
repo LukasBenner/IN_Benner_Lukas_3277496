@@ -12,7 +12,7 @@ classdef numDiff < matlab.mixin.SetGet
 % See also: myNewton, myPoly, dmyPoly, numDiff/diff
 %
 % Author: Lukas Benner
-% Date: March 30, 2020
+% Date: March 30, 2022
 
 % ------------- BEGIN CODE --------------
 
@@ -33,7 +33,7 @@ classdef numDiff < matlab.mixin.SetGet
         % See also: numDiff
         %
         % Author: Lukas Benner
-        % Date: March 30, 2020
+        % Date: March 30, 2022
         
         % ------------- BEGIN CODE --------------
             for i = 1:nargin
@@ -58,7 +58,7 @@ classdef numDiff < matlab.mixin.SetGet
         % See also: numDiff
         %
         % Author: Lukas Benner
-        % Date: March 30, 2020
+        % Date: March 30, 2022
 
         % ------------- BEGIN CODE --------------
             switch obj.diffMethod

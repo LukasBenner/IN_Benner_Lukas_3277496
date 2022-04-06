@@ -32,7 +32,7 @@ function [xZero, abortFlag, iters] = myNewton(varargin)
 % See also: numDiff, myPoly, dmyPoly
 %
 % Author: Lukas Benner
-% Date: March 30, 2020
+% Date: March 30, 2022
 
 % ------------- BEGIN CODE --------------
 
