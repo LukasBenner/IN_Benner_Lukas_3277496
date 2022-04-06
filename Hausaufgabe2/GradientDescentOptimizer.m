@@ -10,9 +10,6 @@ classdef GradientDescentOptimizer < matlab.mixin.SetGet
     
     methods (Access = public)
         function obj = GradientDescentOptimizer(varargin)
-            %GRADIENTDESCENTOPTIMIZER Construct an instance of this class            
-          
-            % ========= YOUR CODE HERE =========
             for i= 1:2:nargin
                switch varargin{i}
                    case 'LearningRate'
@@ -26,18 +23,9 @@ classdef GradientDescentOptimizer < matlab.mixin.SetGet
 
         function h = runTraining(obj, linearRegressionModel)
             [alpha,maxIters,theta,X,y,m,costOverIters] = obj.getLocalsForTraining(linearRegressionModel);
-                      
-            % ========= YOUR CODE HERE =========
-            % perform the optimization (by debugging please check the purpose of local variable X)
-            % loop over theta-update-rule (maxIters):
-            %   vectorized updaterule can be implemented in one line of code
-            %   update theta property of linearRegressionModel (we want to call the cost function in the next step)
-            %   compute current costs and save them to costOverIters
-            % end
             for i = 1:maxIters
                 delta = X * theta - y;
-                theta(1) = theta(1) - alpha * sum(delta)/m;
-                theta(2) = theta(2) - alpha * (X(:,2)' * delta)/m;
+                theta = theta - [alpha * sum(delta)/m; alpha * (X(:,2)' * delta)/m];
                 linearRegressionModel.setTheta(theta(1), theta(2));
                 costOverIters(i,1) = linearRegressionModel.costFunction();
             end
@@ -62,7 +50,6 @@ classdef GradientDescentOptimizer < matlab.mixin.SetGet
         function setMaxNumOfIterations(obj, maxIters)
             obj.maxIterations = maxIters;
         end
-    
     end
     
     methods (Access = private) 

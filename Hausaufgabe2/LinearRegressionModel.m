@@ -7,13 +7,11 @@ classdef LinearRegressionModel < matlab.mixin.SetGet
         trainingData
         theta
         thetaOptimum
+        X
     end
     
     methods (Access = public)
         function obj = LinearRegressionModel(varargin)
-            %LINEARREGRESSIONMODEL Construct an instance of this class
-            
-            % ========= YOUR CODE HERE =========
             for i= 1:2:nargin
                switch varargin{i}
                    case 'Data'
@@ -23,12 +21,12 @@ classdef LinearRegressionModel < matlab.mixin.SetGet
                end
             end
             obj.initializeTheta();
+            obj.X = [ones(obj.trainingData.numOfSamples,1) obj.trainingData.feature];
         end
         
         function J = costFunction(obj)
             m = obj.trainingData.numOfSamples;
-            hypothesis =  obj.hypothesis();
-            delta = hypothesis - obj.trainingData.commandVar;
+            delta = obj.X * obj.theta - obj.trainingData.commandVar;
             deltaSqare = power(delta,2);
             J = sum(deltaSqare) / (2 * m);
         end
@@ -39,30 +37,16 @@ classdef LinearRegressionModel < matlab.mixin.SetGet
                 for j = 1:size(theta1_vals,2)
                     obj.theta = [theta0_vals(i); theta1_vals(j)];
                     costs(j,i) = obj.costFunction();  
-                    % cost(j,i) is cost(row, column)
-                    % and not cost(row, column) like for pictures
+                    % costs(j,i) is costs(row, column)
+                    % and not costs(column, row) like for pictures
                 end
             end
-        end
-        
-        function hValue = hypothesis(obj)
-            X = [ones(obj.trainingData.numOfSamples,1) obj.trainingData.feature];
-            
-            % ========= YOUR CODE HERE =========
-            hValue = X * obj.theta;
         end
         
         function h = showOptimumInContour(obj)
             h = figure('Name','Optimum');
             theta0_vals = linspace(50, 150, 100);
             theta1_vals = linspace(0, 2, 100);
-            
-            % ========= YOUR CODE HERE =========
-            % compute the costs for each theta_vals tuple
-            % plot the costs with the contour command
-            % add x and y label
-            % add the optimum theta value to the plot (red X, MarkerSize: 10, LineWidth: 2)
-            
             costs = obj.costsFunction(theta0_vals, theta1_vals);
             contour(theta0_vals, theta1_vals, costs);
             hold on
@@ -76,8 +60,6 @@ classdef LinearRegressionModel < matlab.mixin.SetGet
             h = figure('Name','Cost Function Area');
             theta0_vals = linspace(50, 150, 100);
             theta1_vals = linspace(0, 2, 100);
-
-            % ========= YOUR CODE HERE =========
             costs = obj.costsFunction(theta0_vals, theta1_vals);
             surf(theta0_vals, theta1_vals, costs);
             xlabel('\theta_0');
@@ -95,10 +77,6 @@ classdef LinearRegressionModel < matlab.mixin.SetGet
         
         function h = showModel(obj)
            h = obj.showTrainingData();
-           
-           % ========= YOUR CODE HERE =========
-           % add the final trained model plot to the figure ('b-')
-           % update the legend
            hold on
            x = obj.trainingData.feature;
            y = obj.thetaOptimum(1) + x * obj.thetaOptimum(2); 

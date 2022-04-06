@@ -16,10 +16,6 @@ classdef LinearRegressionDataFormatter < matlab.mixin.SetGet
     
     methods (Access = public)
         function obj = LinearRegressionDataFormatter(varargin)
-            %DATAPRERPERATOR Construct an instance of this class
-            
-            % ========= YOUR CODE HERE =========
-
            for i= 1:2:nargin
                switch varargin{i}
                    case 'Data'

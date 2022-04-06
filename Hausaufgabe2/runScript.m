@@ -2,10 +2,8 @@
 % runs the linear regression model and visulaize the reults
 %
 % See also: LinearRegressionDataFormatter, LinearRegressionModel, GradientDescentOptimizer,
-% Author: Jannik Wiessler
-% DHBW Stuttgart
-% email: jannik.wiessler@daimler.com
-% data: Q1 2021
+% Author: Lukas Benner
+% Date: April 6, 2022
 
 %% mandatory
 clear; clc; close all;
