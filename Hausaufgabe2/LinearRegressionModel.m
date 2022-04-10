@@ -1,6 +1,20 @@
 classdef LinearRegressionModel < matlab.mixin.SetGet
-    %LINEARREGRESSIONMODEL 
-    % Class representing an implementation of linear regression model
+% Class Name: LinearRegressionModel
+%
+% Description: Class representing an implementation of linear regression model
+%
+% Syntax:  myDatFormatter = LinearRegressionDataFormatter('Data','TempearatureMeasurement.mat','Feature','T3','CommandVar','T4');
+%
+% Other m-files required: LinearRegressionModel.m, GradienDecentOptimizer.m
+% Subfunctions: none
+% MAT-files required: TemperatureMeasurement.mat
+%
+% See also: GradientDescentOptimizer, LinearRegressionDataFormatter
+%
+% Author: Lukas Benner
+% Date: April 10, 2022
+
+% ------------- BEGIN CODE --------------
     
     properties (Access = public)
         optimizer
@@ -31,7 +45,7 @@ classdef LinearRegressionModel < matlab.mixin.SetGet
             J = sum(deltaSqare) / (2 * m);
         end
 
-        function costs = costsFunction(obj, theta0_vals, theta1_vals)
+        function costs = costsArrayFunction(obj, theta0_vals, theta1_vals)
             costs = zeros(size(theta0_vals,2),size(theta1_vals, 2));
             for i = 1:size(theta0_vals,2)
                 for j = 1:size(theta1_vals,2)
@@ -47,7 +61,7 @@ classdef LinearRegressionModel < matlab.mixin.SetGet
             h = figure('Name','Optimum');
             theta0_vals = linspace(50, 150, 100);
             theta1_vals = linspace(0, 2, 100);
-            costs = obj.costsFunction(theta0_vals, theta1_vals);
+            costs = obj.costsArrayFunction(theta0_vals, theta1_vals);
             contour(theta0_vals, theta1_vals, costs);
             hold on
             plot(obj.thetaOptimum(1), obj.thetaOptimum(2), 'rx', 'LineWidth',2, 'MarkerSize',10);
@@ -60,7 +74,7 @@ classdef LinearRegressionModel < matlab.mixin.SetGet
             h = figure('Name','Cost Function Area');
             theta0_vals = linspace(50, 150, 100);
             theta1_vals = linspace(0, 2, 100);
-            costs = obj.costsFunction(theta0_vals, theta1_vals);
+            costs = obj.costsArrayFunction(theta0_vals, theta1_vals);
             surf(theta0_vals, theta1_vals, costs);
             xlabel('\theta_0');
             ylabel('\theta_1');

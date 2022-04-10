@@ -1,6 +1,21 @@
 classdef GradientDescentOptimizer < matlab.mixin.SetGet
-    %GRADIENTDESCENTOPTIMIZER 
-    % Class to perform the training for a lineare regression Model
+% Class Name: GradientDescentOptimizer
+%
+% Description: Class to perform the training for a lineare regression Model
+%
+% Syntax:  myOptimizer = GradientDescentOptimizer('LearningRate',9e-6,'MaxIterations',1e5);
+%
+% Other m-files required: LinearRegressionModel.m,
+% LinearRegressionDataFormatter.m
+% Subfunctions: none
+% MAT-files required: none
+%
+% See also: LinearRegressionDataFormatter, LinearRegressionModel
+%
+% Author: Lukas Benner
+% Date: April 10, 2022
+
+% ------------- BEGIN CODE --------------
       
     properties (Access = private)
         costHistory
@@ -25,7 +40,7 @@ classdef GradientDescentOptimizer < matlab.mixin.SetGet
             [alpha,maxIters,theta,X,y,m,costOverIters] = obj.getLocalsForTraining(linearRegressionModel);
             for i = 1:maxIters
                 delta = X * theta - y;
-                theta = theta - [alpha * sum(delta)/m; alpha * (X(:,2)' * delta)/m];
+                theta = theta - [alpha * sum(delta)/m; alpha * sum(X(:,2)' * delta)/m];
                 linearRegressionModel.setTheta(theta(1), theta(2));
                 costOverIters(i,1) = linearRegressionModel.costFunction();
             end
