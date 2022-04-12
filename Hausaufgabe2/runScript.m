@@ -12,7 +12,7 @@ clear; clc; close all;
 dataForLinearRegression = LinearRegressionDataFormatter('Data','TempearatureMeasurement.mat','Feature','T3','CommandVar','T4');
 
 %% create optimizer object
-gradientDescentOptimizer = GradientDescentOptimizer('LearningRate',9e-6,'MaxIterations',1e5);
+gradientDescentOptimizer = GradientDescentOptimizer('LearningRate',9e-6,'MaxIterations',1e7);
 
 %% create lineaer regression model object
 LRMObject = LinearRegressionModel('Data',dataForLinearRegression,'Optimizer',gradientDescentOptimizer);

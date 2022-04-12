@@ -1,11 +1,11 @@
 classdef LinearRegressionDataFormatter < matlab.mixin.SetGet
 % Class Name: LinearRegressionDataFormatter
 %
-% Description: lass to model the training data for lineare regression model object
+% Description: Class to model the training data for lineare regression model object
 %
-% Syntax:  myDiffClass = LinearRegressionModel('Data',dataForLinearRegression,'Optimizer',gradientDescentOptimizer);
+% Syntax:  myDatFormatter = LinearRegressionDataFormatter('Data','TempearatureMeasurement.mat','Feature','T3','CommandVar','T4');
 %
-% Other m-files required: none
+% Other m-files required: LinearRegressionModel.m, GradientDescentOptimizer.mat
 % Subfunctions: none
 % MAT-files required: none
 %

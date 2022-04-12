@@ -3,9 +3,9 @@ classdef LinearRegressionModel < matlab.mixin.SetGet
 %
 % Description: Class representing an implementation of linear regression model
 %
-% Syntax:  myDatFormatter = LinearRegressionDataFormatter('Data','TempearatureMeasurement.mat','Feature','T3','CommandVar','T4');
+% Syntax:  myLinearRegressionModel = LinearRegressionModel('Data',dataForLinearRegression,'Optimizer',gradientDescentOptimizer);
 %
-% Other m-files required: LinearRegressionModel.m, GradienDecentOptimizer.m
+% Other m-files required: LinearRegressionDataFormatter.m, GradienDecentOptimizer.m
 % Subfunctions: none
 % MAT-files required: TemperatureMeasurement.mat
 %

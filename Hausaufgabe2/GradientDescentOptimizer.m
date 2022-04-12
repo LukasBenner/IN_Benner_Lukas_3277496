@@ -5,7 +5,7 @@ classdef GradientDescentOptimizer < matlab.mixin.SetGet
 %
 % Syntax:  myOptimizer = GradientDescentOptimizer('LearningRate',9e-6,'MaxIterations',1e5);
 %
-% Other m-files required: LinearRegressionModel.m,
+% Other m-files required: LinearRegressionModel.m, LinearRegressionDataFormatter.m
 % LinearRegressionDataFormatter.m
 % Subfunctions: none
 % MAT-files required: none
