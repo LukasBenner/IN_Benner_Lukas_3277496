@@ -1,5 +1,5 @@
 %% runScript: 
-% runs the Automobilfederung model and visulaize the reults
+% runs the Automobilfederung model and visualizes the results
 %
 % Author: Lukas Benner
 % DHBW Stuttgart

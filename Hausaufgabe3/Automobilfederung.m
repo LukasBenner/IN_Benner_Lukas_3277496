@@ -13,6 +13,7 @@ classdef Automobilfederung < handle
 % Author: Lukas Benner
 % DHBW Stuttgart
 % data: Q2 2022
+
     properties
         c1 {mustBeNumeric}
         c2 {mustBeNumeric}
@@ -77,9 +78,9 @@ classdef Automobilfederung < handle
                 step = step + 1;
                 if (t + h) > tfinal
                     h = tfinal - t;
-                % ========= YOUR CODE HERE =========
                 end
-                 % calculate the slopes
+                
+                % calculate the slopes
                 k1 = obj.rhs(t, y);
                 k2 = obj.rhs(t + h/2, y + h/2 * k1);
                 k3 = obj.rhs(t + h/2, y + h/2 * k2);
